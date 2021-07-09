@@ -36,11 +36,140 @@ class CustomNumberPuzzleControl extends NumberPuzzleControl {
 		Button buttonClicked = game.getButtonClicked();
 		Button[] buttons = game.getButtons();
 		
-		//Your logic here		
+		//Your logic here	
 		
+		switch(emptyCellId) {
+		case 0:if(buttonClicked == buttons[emptyCellId + 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 1;
+			break;
+		}
+		if(buttonClicked == buttons[emptyCellId + 4]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 4;
+			break;
+		}
+		case 1:
+		case 2:if(buttonClicked == buttons[emptyCellId + 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 1;
+			break;
+		}if(buttonClicked == buttons[emptyCellId - 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId - 1;
+			break;
+		}if(buttonClicked == buttons[emptyCellId + 4]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 4;
+			break;
+		}
+		
+		case 3:if(buttonClicked == buttons[emptyCellId - 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId - 1;
+			break;
+		}if(buttonClicked == buttons[emptyCellId + 4]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 4;
+			break;
+		}
+		case 4:
+		case 8:if(buttonClicked == buttons[emptyCellId + 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 1;
+			break;}
+			if(buttonClicked == buttons[emptyCellId + 4]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId + 4;
+				break;
+			}
+			if(buttonClicked == buttons[emptyCellId - 1]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId - 1;
+				break;}
+		case 5:
+		case 6:
+		case 9:
+		case 10:if(buttonClicked == buttons[emptyCellId + 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 1;
+			break;}
+			if(buttonClicked == buttons[emptyCellId + 4]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId + 4;
+				break;
+			}
+			if(buttonClicked == buttons[emptyCellId - 1]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId - 1;
+				break;}
+			if(buttonClicked == buttons[emptyCellId - 4]) {
+					swapButton(buttons[emptyCellId],buttonClicked);
+					emptyCellId = emptyCellId - 4;
+					break;
+				}
+		
+		case 7:
+		case 11:
+			if(buttonClicked == buttons[emptyCellId + 4]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId + 4;
+				break;
+			}
+			if(buttonClicked == buttons[emptyCellId - 1]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId - 1;
+				break;}
+			if(buttonClicked == buttons[emptyCellId - 4]) {
+					swapButton(buttons[emptyCellId],buttonClicked);
+					emptyCellId = emptyCellId - 4;
+					break;
+				}
+		
+		
+		
+		
+		case 12:if(buttonClicked == buttons[emptyCellId + 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 1;
+			break;
+		}
+			
+			if(buttonClicked == buttons[emptyCellId - 4]) {
+					swapButton(buttons[emptyCellId],buttonClicked);
+					emptyCellId = emptyCellId - 4;
+					break;
+				}
+		case 13: 
+		case 14:if(buttonClicked == buttons[emptyCellId + 1]) {
+			swapButton(buttons[emptyCellId],buttonClicked);
+			emptyCellId = emptyCellId + 1;
+			break;}
+			if(buttonClicked == buttons[emptyCellId - 1]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId - 1;
+				break;}
+			if(buttonClicked == buttons[emptyCellId - 4]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId - 4;
+				break;}
+		case 15:
+			
+			if(buttonClicked == buttons[emptyCellId - 1]) {
+				swapButton(buttons[emptyCellId],buttonClicked);
+				emptyCellId = emptyCellId - 1;
+				break;}
+			if(buttonClicked == buttons[emptyCellId - 4]) {
+					swapButton(buttons[emptyCellId],buttonClicked);
+					emptyCellId = emptyCellId - 4;
+					break;
+				}
+		}
 		return emptyCellId;
-
 	}
+		
+
+	
 	public int[] getRandomNumbersForGrid() {
 		int arr[] = new int[15];
 		int i;
@@ -75,7 +204,13 @@ class CustomNumberPuzzleControl extends NumberPuzzleControl {
 		boolean winner = true;
 		
 		// Your Logic here
-		getIntegerArrayOfButtonIds(buttons);
+		int[] arr = getIntegerArrayOfButtonIds(buttons);
+		
+		for(int i =1;i <=15;i++) {
+			if(arr[i] != i) {
+				return false;
+			}
+		}
 
 		return winner;
 	}
