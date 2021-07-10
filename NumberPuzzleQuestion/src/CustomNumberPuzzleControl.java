@@ -183,7 +183,7 @@ class CustomNumberPuzzleControl extends NumberPuzzleControl {
 		for (i = 1;i <= 15;i++) {//i will be inserted in the array
 			a = getRandomNumber();
 			a = a%15;  //a is the random position to insert the i into
-			flag = 1;
+			flag = 0;
 			while(flag == 0) { //while loop is exited only after a random,previously unfilled position is filled.
 				if (arr[a] == -1) {//already filled spaces are not re- filled
 					arr[a] = i;
