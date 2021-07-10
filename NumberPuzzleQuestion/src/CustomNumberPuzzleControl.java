@@ -206,8 +206,8 @@ class CustomNumberPuzzleControl extends NumberPuzzleControl {
 		// Your Logic here
 		int[] arr = getIntegerArrayOfButtonIds(buttons);
 		
-		for(int i =1;i <=15;i++) {
-			if(arr[i] != i) {
+		for(int i =0;i <=14;i++) {
+			if(arr[i] != i+1) {
 				return false;
 			}
 		}
